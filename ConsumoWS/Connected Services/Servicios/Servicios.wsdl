@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Saludar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaludarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaludarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GuardarLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="texto" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GuardarLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GuardarLogResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Multiplicacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="a" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="b" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MultiplicacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MultiplicacionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerDeportes">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObtenerDeportesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerDeportesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GuardarVector">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deportes" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GuardarVectorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GuardarVectorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObptenrEquipos">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObptenrEquiposResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObptenrEquiposResult" type="tns:ArrayOfEquipos" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEquipos">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Equipos" nillable="true" type="tns:Equipos" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Equipos">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="nombreEquipo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="pais" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaludarSoapIn">
+    <wsdl:part name="parameters" element="tns:Saludar" />
+  </wsdl:message>
+  <wsdl:message name="SaludarSoapOut">
+    <wsdl:part name="parameters" element="tns:SaludarResponse" />
+  </wsdl:message>
+  <wsdl:message name="GuardarLogSoapIn">
+    <wsdl:part name="parameters" element="tns:GuardarLog" />
+  </wsdl:message>
+  <wsdl:message name="GuardarLogSoapOut">
+    <wsdl:part name="parameters" element="tns:GuardarLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="MultiplicacionSoapIn">
+    <wsdl:part name="parameters" element="tns:Multiplicacion" />
+  </wsdl:message>
+  <wsdl:message name="MultiplicacionSoapOut">
+    <wsdl:part name="parameters" element="tns:MultiplicacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDeportesSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerDeportes" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDeportesSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerDeportesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GuardarVectorSoapIn">
+    <wsdl:part name="parameters" element="tns:GuardarVector" />
+  </wsdl:message>
+  <wsdl:message name="GuardarVectorSoapOut">
+    <wsdl:part name="parameters" element="tns:GuardarVectorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObptenrEquiposSoapIn">
+    <wsdl:part name="parameters" element="tns:ObptenrEquipos" />
+  </wsdl:message>
+  <wsdl:message name="ObptenrEquiposSoapOut">
+    <wsdl:part name="parameters" element="tns:ObptenrEquiposResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiciosSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Saludar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Este metodo devuelve un saludo</wsdl:documentation>
+      <wsdl:input message="tns:SaludarSoapIn" />
+      <wsdl:output message="tns:SaludarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarLog">
+      <wsdl:input message="tns:GuardarLogSoapIn" />
+      <wsdl:output message="tns:GuardarLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Multiplicacion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Es metodo recibe dos pametros para realizar una multiplicacion </wsdl:documentation>
+      <wsdl:input message="tns:MultiplicacionSoapIn" />
+      <wsdl:output message="tns:MultiplicacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDeportes">
+      <wsdl:input message="tns:ObtenerDeportesSoapIn" />
+      <wsdl:output message="tns:ObtenerDeportesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarVector">
+      <wsdl:input message="tns:GuardarVectorSoapIn" />
+      <wsdl:output message="tns:GuardarVectorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObptenrEquipos">
+      <wsdl:input message="tns:ObptenrEquiposSoapIn" />
+      <wsdl:output message="tns:ObptenrEquiposSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiciosSoap" type="tns:ServiciosSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Saludar">
+      <soap:operation soapAction="http://tempuri.org/Saludar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarLog">
+      <soap:operation soapAction="http://tempuri.org/GuardarLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Multiplicacion">
+      <soap:operation soapAction="http://tempuri.org/Multiplicacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDeportes">
+      <soap:operation soapAction="http://tempuri.org/ObtenerDeportes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarVector">
+      <soap:operation soapAction="http://tempuri.org/GuardarVector" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObptenrEquipos">
+      <soap:operation soapAction="http://tempuri.org/ObptenrEquipos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiciosSoap12" type="tns:ServiciosSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Saludar">
+      <soap12:operation soapAction="http://tempuri.org/Saludar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarLog">
+      <soap12:operation soapAction="http://tempuri.org/GuardarLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Multiplicacion">
+      <soap12:operation soapAction="http://tempuri.org/Multiplicacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDeportes">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerDeportes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarVector">
+      <soap12:operation soapAction="http://tempuri.org/GuardarVector" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObptenrEquipos">
+      <soap12:operation soapAction="http://tempuri.org/ObptenrEquipos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Servicios">
+    <wsdl:port name="ServiciosSoap" binding="tns:ServiciosSoap">
+      <soap:address location="http://localhost:8081/Servicios.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiciosSoap12" binding="tns:ServiciosSoap12">
+      <soap12:address location="http://localhost:8081/Servicios.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
